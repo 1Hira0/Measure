@@ -91,7 +91,7 @@ document.getElementById('takePhotoBtn').addEventListener('click', () => {
 
 // Start camera stream
 function startCamera() {
-  navigator.mediaDevices.getUserMedia({ video: true, facingMode: { exact: "environment" } })
+  navigator.mediaDevices.getUserMedia({ video: { facingMode: { exact: "environment" }} })
     .then((stream) => {
       video.srcObject = stream;
     })
