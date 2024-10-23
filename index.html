@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Measure Distance from Image or Camera</title>
     <style>
-        body { text-align: center; font-family: Arial, sans-serif; }
+        body { text-align: center;}
         canvas { border: 1px solid black; display: block; margin: 10px auto; }
         video { display: none; }
         button, input { margin-top: 10px; }
@@ -28,7 +28,7 @@
 
     <!-- Canvas for displaying image or captured photo -->
     <canvas id="canvas" width="640" height="480"></canvas>
-
+    <!-- Calibrating Unit -->
     <div>
         <label for="calibrationInput">Enter known distance (for calibration):</label>
         <input type="number" id="calibrationInput" placeholder="Distance in units">
@@ -36,7 +36,6 @@
     </div>
 
     <button id="measure">Measure</button>
-    <div id="output"></div>
     <div id="message"></div>
 
     <script>
@@ -48,7 +47,7 @@ let scaleFactor = 1;  // Scaling from pixels to real-world units
 let calibrationLength = null;
 const calibrationInput = document.getElementById('calibrationInput');
 const messageBox = document.getElementById('message');
-let image = null;  // Store uploaded image
+let image = null;  
 let usingCamera = false;
 
 // Handle image upload
@@ -137,9 +136,7 @@ canvas.addEventListener('click', (event) => {
 
 // Calculate pixel distance between two points
 function calculateDistance(p1, p2) {
-  const dx = p2.x - p1.x;
-  const dy = p2.y - p1.y;
-  return Math.sqrt(dx * dx + dy * dy);
+  return ( (p2.x - p1.x)**2+(p2.y - p1.y)**2 )**0.5;
 }
 
 // Calibrate scale (pixel-to-real-world conversion)
@@ -176,7 +173,7 @@ document.getElementById('measure').addEventListener('click', () => {
 
   const pixelDistance = calculateDistance(points[0], points[1]);
   const realDistance = pixelDistance * scaleFactor;
-  document.getElementById('output').innerText = `Measured distance: ${realDistance.toFixed(2)} units`;
+  document.getElementById('message').innerText = `Measured distance: ${realDistance.toFixed(2)} units`;
 
   points = [];  // Clear points after measuring
   ctx.clearRect(0, 0, canvas.width, canvas.height);  // Clear canvas after measurement
