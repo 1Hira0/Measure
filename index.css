@@ -5,7 +5,7 @@ video { display: none; }
 button, input { margin-top: 10px; }
 #message { margin-top: 20px; font-size: 16px; }
 .Cali {color :antiquewhite; }
-button{
+button, input::file-selector-button {
   appearance: button;
   background-color: #212020;
   background-image: none;
@@ -50,6 +50,6 @@ button:not([disabled]):active {
   transform: translate(2px, 2px);
 }
 
-input {
-    visibility:hidden;
+input[type|='file'] {
+    color:transparent;
 }
