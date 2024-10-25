@@ -1,10 +1,31 @@
-body {text-align: center; background-image: linear-gradient(to bottom right, navy, #000000); }
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {text-align: center; 
+	background-image: 
+		linear-gradient(
+			to bottom right, navy, #000000
+		);
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	background-repeat: no-repeat;
+	background-attachment:fixed;}
+
 h1, label {color:white}
+
 canvas { border: 1px solid rgb(255 255 255); display: block; margin: 10px auto; }
+
 video { display: none; }
+
 button, input { margin-top: 10px; }
-#message { margin-top: 20px; font-size: 16px; }
+
+#message { margin-top: 20px; font-size: 16px; color: #ffffff;}
+
 .Cali {color :antiquewhite; }
+
 button, input::file-selector-button {
   appearance: button;
   background-color: #212020;
