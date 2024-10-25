@@ -8,9 +8,9 @@ const calibrationInput = document.getElementById('calibrationInput');
 const messageBox = document.getElementById('message');
 let image = null;  
 let usingCamera = false;
-ctx.font ='50px Arial'
+ctx.font ='2rem Arial'
 ctx.fillStyle = 'white'
-ctx.fillText('Waiting for your image',canvas.width/8 , canvas.height/2)
+ctx.fillText('Waiting for image',canvas.width/8 , canvas.height/2)
 
 // Handle image upload
 document.getElementById('imageInput').addEventListener('change', (event) => {
